@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ProductInventoryApp.Models.Product>
+
+@{
+    ViewData["Title"] = "Afisarea Produselor";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<!-- Afisare produsul cel mai scump -->
+<h3>Produsul cu cel mai mare preț</h3>
+@if (ViewBag.ProdusulCelMaiScump != null)
+{
+    var produsulCelMaiScump = ViewBag.ProdusulCelMaiScump as ProductInventoryApp.Models.Product;
+    <div class="alert alert-info">
+        <strong>Denumire:</strong> @produsulCelMaiScump.Nume <br />
+        <strong>Producător:</strong> @produsulCelMaiScump.Producator <br />
+        <strong>Preț:</strong> @produsulCelMaiScump.Pret <br />
+        <strong>Cantitate în Stoc:</strong> @produsulCelMaiScump.CantitateaStoc
+    </div>
+}
+
+<!-- Tabelul cu toate produsele -->
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Denumire</th>
+            <th>Producător</th>
+            <th>Preț</th>
+            <th>Cantitate în Stoc</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var produs in Model)
+        {
+            <tr>
+                <td>@produs.Nume</td>
+                <td>@produs.Producator</td>
+                <td>@produs.Pret</td>
+                <td>@produs.CantitateaStoc</td>
+            </tr>
+        }
+    </tbody>
+</table>

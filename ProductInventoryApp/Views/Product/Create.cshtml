@@ -1,0 +1,27 @@
+﻿@model ProductInventoryApp.Models.Product
+
+@{
+    ViewData["Title"] = "Crearea Produsului";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label for="Nume" class="form-label">Denumire</label>
+        <input type="text" class="form-control" id="Nume" name="Nume" required />
+    </div>
+    <div class="mb-3">
+        <label for="Producator" class="form-label">Producător</label>
+        <input type="text" class="form-control" id="Producator" name="Producator" required />
+    </div>
+    <div class="mb-3">
+        <label for="Pret" class="form-label">Pret</label>
+        <input type="number" class="form-control" id="Pret" name="Pret" step="0.01" required />
+    </div>
+    <div class="mb-3">
+        <label for="CantitateaStoc" class="form-label">Cantitate în Stoc</label>
+        <input type="number" class="form-control" id="CantitateaStoc" name="CantitateaStoc" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Crează Produsul</button>
+</form>
